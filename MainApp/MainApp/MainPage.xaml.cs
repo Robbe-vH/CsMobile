@@ -1,4 +1,6 @@
-﻿namespace MainApp;
+﻿using MainApp.Oefeningen;
+
+namespace MainApp;
 
 public partial class MainPage : ContentPage
 {
@@ -8,9 +10,8 @@ public partial class MainPage : ContentPage
 
 		var links = new List<OefeningLink>();
 
-        links.Add(new OefeningLink("Oefening 1"));
-        links.Add(new OefeningLink("Oefening 2"));
-        links.Add(new OefeningLink("Oefening 3"));
+        links.Add(new OefeningLink("L33t Translator"));
+        links.Add(new OefeningLink("To Do List"));
 
         OefeningenCollectionView.ItemsSource = links;
     }
@@ -21,14 +22,11 @@ public partial class MainPage : ContentPage
 		{
 			switch (selectedLink.Title)
 			{
-                case "Oefening 1":
-                    await Shell.Current.GoToAsync(nameof(Oefening1Page));
+                case "L33t Translator":
+                    await Shell.Current.GoToAsync(nameof(L33tTranslatorPage));
                     break;
-                case "Oefening 2":
-                    await Shell.Current.GoToAsync(nameof(Oefening1Page));
-                    break;
-                case "Oefening 3":
-                    await Shell.Current.GoToAsync(nameof(Oefening1Page));
+                case "To Do List":
+                    await Shell.Current.GoToAsync(nameof(ToDoPage));
                     break;
                 default:
 					break;

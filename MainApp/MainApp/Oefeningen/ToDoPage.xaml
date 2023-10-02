@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MainApp.Oefeningen.ToDoPage"
+             Title="ToDoPage">
+
+    <VerticalStackLayout
+        Spacing="25"
+        Padding="30, 0">
+        <CollectionView
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="Start"
+            x:Name="takenColView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem
+                                        Text="Done"
+                                        BackgroundColor="Green"
+                                        Invoked="SwipeItem_Invoked_Done"
+                                        CommandParameter="{Binding .}"
+                                        IsVisible="{Binding IsNietKlaar}"/>
+                                <SwipeItem 
+                                        Text="Delete"
+                                        BackgroundColor="Red"
+                                        Invoked="SwipeItem_Invoked_Delete"
+                                        CommandParameter="{Binding .}"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Frame Margin="0, 15">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="25" />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Text="{Binding Titel}" />
+                                <Image 
+                                    Source="complete.png" 
+                                    WidthRequest="10"
+                                    IsVisible="{Binding IsKlaar}"
+                                    Grid.Column="1"/>
+                            </Grid>
+
+                        </Frame>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <ImageButton 
+            Source="plus.png"
+            WidthRequest="60"
+            Clicked="ImageButton_Clicked" />
+    </VerticalStackLayout>
+</ContentPage>

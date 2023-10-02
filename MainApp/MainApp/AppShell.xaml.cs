@@ -1,4 +1,6 @@
-﻿namespace MainApp;
+﻿using MainApp.Oefeningen;
+
+namespace MainApp;
 
 public partial class AppShell : Shell
 {
@@ -6,6 +8,7 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 
-		Routing.RegisterRoute(nameof(Oefening1Page), typeof(Oefening1Page));
+		Routing.RegisterRoute(nameof(L33tTranslatorPage), typeof(L33tTranslatorPage));
+		Routing.RegisterRoute(nameof(ToDoPage), typeof(ToDoPage));
 	}
 }
