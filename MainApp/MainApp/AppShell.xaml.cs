@@ -10,5 +10,6 @@ public partial class AppShell : Shell
 
 		Routing.RegisterRoute(nameof(L33tTranslatorPage), typeof(L33tTranslatorPage));
 		Routing.RegisterRoute(nameof(ToDoPage), typeof(ToDoPage));
+		Routing.RegisterRoute(nameof(CalculatorPage), typeof(CalculatorPage));
 	}
 }

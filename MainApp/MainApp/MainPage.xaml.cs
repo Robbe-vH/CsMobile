@@ -12,6 +12,7 @@ public partial class MainPage : ContentPage
 
         links.Add(new OefeningLink("L33t Translator"));
         links.Add(new OefeningLink("To Do List"));
+        links.Add(new OefeningLink("Calculator"));
 
         OefeningenCollectionView.ItemsSource = links;
     }
@@ -27,6 +28,9 @@ public partial class MainPage : ContentPage
                     break;
                 case "To Do List":
                     await Shell.Current.GoToAsync(nameof(ToDoPage));
+                    break;
+                case "Calculator":
+                    await Shell.Current.GoToAsync(nameof(CalculatorPage));
                     break;
                 default:
 					break;
