@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BindingExamples.MainPage"
+             Shell.NavBarIsVisible="False"
+             xmlns:local="clr-namespace:BindingExamples"
+             xmlns:models="clr-namespace:BindingExamples.Models"
+             x:DataType="local:MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout VerticalOptions="Center">
+            <CollectionView ItemsSource="{Binding ActorList}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Actor">
+                        <VerticalStackLayout>
+                            <Image Source="{Binding ProfilePicture}"
+                                   HeightRequest="150" />
+                            <Label Text="{Binding FirstName}" />
+                            <Label Text="{Binding Name}"
+                                   BackgroundColor="{Binding Birthyear, Converter={StaticResource BirthyearConverter}}" />
+                            <Button Text="Delete this actor"
+                                  CommandParameter="{Binding .}"
+                                  Clicked="DeleteAnActorButton" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="Add Actor"
+                    Command="{Binding AddActor}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
